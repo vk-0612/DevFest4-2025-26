@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image"
 import { Audiowide } from "next/font/google";
+import Link from "next/link";
 
 const audioWide = Audiowide({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ const NavBar = () => {
         <ul className="flex gap-8 text-[0.75rem] font-medium text-white/90">
           {["HOME","TIMELINE","PRIZES","HACKATHONS","SPONSORS","ABOUT","TEAM","FAQs"]
             .map((item) => (
-              <li
+              <Link
                 key={item}
                 className="
                   cursor-pointer 
@@ -37,9 +38,10 @@ const NavBar = () => {
                   hover:scale-105 
                   transition-all duration-150
                 "
+                href={`#${item}`}
               >
                 {item}
-              </li>
+              </Link>
             ))}
         </ul>
       </nav>

@@ -11,35 +11,34 @@ const orbitron = Orbitron({
 })
 export default function Home() {
   return (
-    <div className={`h-screen flex justify-center items-center flex-col ${orbitron.className}`}>
-      <div className="absolute inset-0 w-screen h-screen -z-10">
-        <LetterGlitch
-          glitchSpeed={50}
-          centerVignette={true}
-          outerVignette={false}
-          smooth={true}
-        />
-      </div>
+    <div>
+      <main className={`h-screen flex justify-center items-center flex-col ${orbitron.className}`}>
+        <div className="absolute inset-0 w-screen h-screen -z-10">
+          <LetterGlitch
+            glitchSpeed={50}
+            centerVignette={true}
+            outerVignette={false}
+            smooth={true}
+          />
+        </div>
 
-      <div className="flex items-center flex-col">
-        <FuzzyText
-          baseIntensity={0.2}
-          hoverIntensity={0.25}
-          className={`text-[9rem] font-bold`}
-        >
-          DevFest
-        </FuzzyText>
+        <div className="flex items-center flex-col">
+          <Image src="/devfest.png" width={700} height={100} alt="devfest" />
 
-        <GradientText
-          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-          animationSpeed={3}
-          showBorder={false}
-          className={`text-[8rem] m-0 select-none`}
-        >
-          5.0
-        </GradientText>
-      </div>
+          <GradientText
+            colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+            className={`text-[8rem] m-0 select-none`}
+          >
+            5.0
+          </GradientText>
+        </div>
 
-    </div >
+      </main >
+      <section id="ABOUT" className="text-white h-[200px]">
+        I am about section
+      </section>
+    </div>
   );
 }
