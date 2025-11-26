@@ -1,18 +1,26 @@
-"use client"
+"use client";
+
 import Image from "next/image";
 import { Orbitron } from "next/font/google";
 import LetterGlitch from "@/components/LetterGlitch";
 import FuzzyText from "@/components/FuzzyText";
 import GradientText from "@/components/GradientText";
+import CursorAura from "@/components/CursorAura";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
-  weight: ["400", "600", "700", "900"]
-})
+  weight: ["400", "600", "700", "900"],
+});
+
 export default function Home() {
   return (
-    <div className={`h-screen flex justify-center items-center flex-col ${orbitron.className}`}>
-      <div className="absolute inset-0 w-screen h-screen -z-10">
+    <main className={`${orbitron.className}`}>
+    <div
+      id="home"
+      className="relative h-screen flex justify-center items-center flex-col overflow-hidden"
+    >
+      {/* Glitchy background */}
+      <div className="absolute inset-0 w-screen h-screen -z-20">
         <LetterGlitch
           glitchSpeed={50}
           centerVignette={true}
@@ -21,14 +29,24 @@ export default function Home() {
         />
       </div>
 
-      <div className="flex items-center flex-col">
-        <FuzzyText
-          baseIntensity={0.2}
-          hoverIntensity={0.25}
-          className={`text-[9rem] font-bold`}
+      {/* Cursor/touch aura */}
+      <CursorAura />
+
+      {/* Main hero text (simple) */}
+      <div className="flex items-center flex-col z-10">
+        <div
+          className="cursor-pointer transition-all duration-200
+                     hover:scale-110 hover:-translate-y-1
+                     hover:drop-shadow-[0_0_35px_rgba(255,232,120,0.9)]"
         >
-          DevFest
-        </FuzzyText>
+          <FuzzyText
+            baseIntensity={0.2}
+            hoverIntensity={0.3}
+            className={`text-[9rem] font-bold`}
+          >
+            DevFest
+          </FuzzyText>
+        </div>
 
         <GradientText
           colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
@@ -39,7 +57,32 @@ export default function Home() {
           5.0
         </GradientText>
       </div>
+    </div>
 
-    </div >
+    {/* Placeholder sections so navbar links scroll somewhere */}
+    <section id="timeline" className="h-screen flex items-center justify-center">
+      <p className="text-white/60 text-xl">Timeline section coming soon.</p>
+    </section>
+    <section id="prizes" className="h-screen flex items-center justify-center">
+      <p className="text-white/60 text-xl">Prizes section coming soon.</p>
+    </section>
+    <section id="hackathons" className="h-screen flex items-center justify-center">
+      <p className="text-white/60 text-xl">Hackathons section coming soon.</p>
+    </section>
+    <section id="sponsors" className="h-screen flex items-center justify-center">
+      <p className="text-white/60 text-xl">Sponsors section coming soon.</p>
+    </section>
+    <section id="about" className="h-screen flex items-center justify-center">
+      <p className="text-white/60 text-xl">About section coming soon.</p>
+    </section>
+    <section id="team" className="h-screen flex items-center justify-center">
+      <p className="text-white/60 text-xl">Team section coming soon.</p>
+    </section>
+    <section id="faqs" className="h-screen flex items-center justify-center mb-32">
+      <p className="text-white/60 text-xl">FAQs section coming soon.</p>
+    </section>
+    </main>
   );
 }
+
+
