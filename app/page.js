@@ -22,23 +22,20 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex items-center flex-col">
+        <div className="flex items-center flex-col select-none">
           <Image src="/devfest.png" width={700} height={100} alt="devfest" />
 
           <GradientText
             colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
             animationSpeed={3}
             showBorder={false}
-            className={`text-[8rem] m-0 select-none`}
+            className={`text-[8rem] m-0`}
           >
             5.0
           </GradientText>
         </div>
 
       </main >
-      <section id="ABOUT" className="text-white h-[200px]">
-        I am about section
-      </section>
     </div>
   );
 }
